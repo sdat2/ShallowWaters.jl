@@ -37,9 +37,10 @@ function NcFiles(feedback::Feedback,S::ModelSetup)
 
         for nc in (ncu,ncv,ncη,ncsst,ncq,ncζ,ncdu,ncdv,ncdη)
             if nc != nothing
-                NetCDF.putatt(nc,"t",Dict("units"=>"s","long_name"=>"time"))
-                NetCDF.putatt(nc,"x",Dict("units"=>"m","long_name"=>"zonal coordinate"))
-                NetCDF.putatt(nc,"y",Dict("units"=>"m","long_name"=>"meridional coordinate"))
+                
+                NetCDF.putatt(nc,"t",Dict("units"=>"s","long_name"=>"time")) # ,"axis"=>"T"))
+                NetCDF.putatt(nc,"x",Dict("units"=>"m","long_name"=>"zonal coordinate")) # ,"axis"=>"X"))
+                NetCDF.putatt(nc,"y",Dict("units"=>"m","long_name"=>"meridional coordinate")) # ,"axis"=>"Y"))
             end
         end
 
